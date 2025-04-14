@@ -57,10 +57,10 @@ DELETE /api/stories/:id → Delete a story
 
 🔐 Use Authorization: Bearer <token> in headers
 
-🌟 Credits
-ChatAnywhere GPT API Free
-OpenAI
-Chatgpt of course
-And Me💐
+### 🌟 Credits
+1. ChatAnywhere GPT API Free
+2. OpenAI
+3. Chatgpt of course
+4. And Me💐
 
 
