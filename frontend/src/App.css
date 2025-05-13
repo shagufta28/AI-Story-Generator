@@ -5,6 +5,13 @@
   text-align: center;
 }
 
+/* index.css or global styles */
+body {
+  margin: 0;
+  overflow: hidden; /* removes scroll */
+}
+
+
 .logo {
   height: 6em;
   padding: 1.5em;

@@ -126,6 +126,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       await API.post('/auth/signup', form);
+      alert("Signup successful! Please login.");
       navigate('/home');
     } catch (err) {
       alert("Signup failed. Please try again.");

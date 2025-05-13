@@ -8,6 +8,10 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Segoe UI', sans-serif;
   }
 
+  body {
+    margin: 0;
+    overflow: hidden;
+  }
   
 
   a {
