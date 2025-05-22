@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const dotenv = require('dotenv');
 const cors = require('cors');
@@ -9,11 +8,14 @@ connectDB();
 
 const app = express();
 
+const allowedOrigin = "https://ai-story-generator-xi.vercel.app";
 
 app.use(cors({
-  origin: ["https://ai-story-generator-xi.vercel.app"], // or '*' for testing (not for production)
+  origin: allowedOrigin,
   credentials: true
 }));
+
+
 app.use(express.json());
 
 app.use('/api/auth', require('./routes/authRoutes'));
