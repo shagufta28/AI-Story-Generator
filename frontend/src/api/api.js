@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: 'https://ai-story-generator-rtmh.vercel.app/api',
+  baseURL: 'https://ai-story-generator-nikl.onrender.com/api',
 });
 
 API.interceptors.request.use((req) => {
