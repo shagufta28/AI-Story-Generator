@@ -8,30 +8,18 @@ connectDB();
 
 const app = express();
 
-const allowedOrigins = ['https://ai-story-generator-xi.vercel.app'];
-
 const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
+  origin: 'https://ai-story-generator-xi.vercel.app',
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
-// ✅ CORS must be applied before any routes
 app.use(cors(corsOptions));
-
-// ✅ Important: Handle preflight OPTIONS requests for all routes
-app.options('*', cors(corsOptions));
+app.options('*', cors(corsOptions)); // Preflight
 
 app.use(express.json());
 
-// ✅ Your routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/stories', require('./routes/storyRoutes'));
 
