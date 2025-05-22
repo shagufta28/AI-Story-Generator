@@ -11,7 +11,7 @@ const app = express();
 
 
 app.use(cors({
-  origin: ["https://ai-story-generator-xi.vercel.app/"], // or '*' for testing (not for production)
+  origin: ["https://ai-story-generator-xi.vercel.app"], // or '*' for testing (not for production)
   credentials: true
 }));
 app.use(express.json());
