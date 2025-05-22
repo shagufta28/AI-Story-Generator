@@ -9,7 +9,7 @@ connectDB();
 const app = express();
 
 // ✅ Use an array for flexibility (optional if you allow just one origin)
-const allowedOrigins = ['https://ai-story-generator-nikl.onrender.com'];
+const allowedOrigins = ['https://ai-story-generator-xi.vercel.app'];
 
 app.use(cors({
   origin: function (origin, callback) {
