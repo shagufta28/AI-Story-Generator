@@ -8,10 +8,9 @@ connectDB();
 
 const app = express();
 
-// ✅ Use an array for flexibility (optional if you allow just one origin)
 const allowedOrigins = ['https://ai-story-generator-xi.vercel.app'];
 
-app.use(cors({
+const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
@@ -21,20 +20,18 @@ app.use(cors({
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
 
-// ✅ Explicitly handle preflight requests
-app.options('*', cors({
-  origin: allowedOrigins[0],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+// ✅ CORS must be applied before any routes
+app.use(cors(corsOptions));
+
+// ✅ Important: Handle preflight OPTIONS requests for all routes
+app.options('*', cors(corsOptions));
 
 app.use(express.json());
 
-// ✅ Place routes after CORS and JSON
+// ✅ Your routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/stories', require('./routes/storyRoutes'));
 
